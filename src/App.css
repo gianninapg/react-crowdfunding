@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
 .App {
   text-align: center;
 }
@@ -35,4 +37,47 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.nav{
+  width: 100%;
+  padding-top: 40px;
+  background-color: white;
+  overflow: hidden;
+  font-size: 30px;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-flow: row;
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 50px;
+  border-bottom: solid 5px #FC5185;
+  box-shadow: 0px 0px 5px orangered;
+ 
+}
+
+.link{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  color: orangered;
+  text-decoration: none;
+  margin-bottom: 15pt;
+  margin-right: 30pt;
+
+} 
+
+.link:hover{
+  border-width: 10px;
+  color: grey;
+}
+
+.linkLogin{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  color: black;
+  text-decoration: none;
+  margin-bottom: 15pt;
+  margin-right: 30pt;
+  font-size: 20px;
 }
