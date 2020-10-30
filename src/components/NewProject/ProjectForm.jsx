@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function LoginForm() {
+function ProjectForm() {
     const [credentials, setCredentials] = useState({
         username: "",
         password: "",
@@ -19,7 +19,7 @@ function LoginForm() {
 
     const postData = async () => {
         const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/api-token-auth/`, 
+        `${process.env.REACT_APP_API_URL}/new-project/`, 
         {
         method: "post",
         headers:{
@@ -33,8 +33,7 @@ function LoginForm() {
         e.preventDefault();
         if (credentials.username && credentials.password){
         postData().then((response) => {
-            console.log(response)
-        window.localStorage.setItem("token", response.token);
+        // window.localStorage.setItem("token", response.token);
         history.push("/");
         });    
         }
@@ -43,7 +42,7 @@ function LoginForm() {
     return (
         <form>
         <div>
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Title:</label>
         <input
             type="text"
             id="username"
@@ -52,7 +51,7 @@ function LoginForm() {
         />
         </div>
         <div>
-        <label htmlFor="password">Pasword:</label>
+        <label htmlFor="password">Description:</label>
         <input
             type="password"
             id="password"
@@ -60,9 +59,9 @@ function LoginForm() {
             onChange={handleChange}
         />
         </div>
-        <button type="submit" onClick={handleSubmit}>Login</button>
+        <button type="submit" onClick={handleSubmit}>Create</button>
         </form>
     );
 }
 
-export default LoginForm;
+export default ProjectForm;
