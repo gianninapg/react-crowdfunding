@@ -54,7 +54,7 @@ function PledgeForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (pledgeData.title && pledgeData.description){
+        if (pledgeData.aumount && pledgeData.comment){
         postData().then((response) => {
             console.log(response)
             window.localStorage.setItem("token", response.token);
