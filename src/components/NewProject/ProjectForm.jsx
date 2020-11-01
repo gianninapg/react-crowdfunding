@@ -26,7 +26,7 @@ function ProjectForm() {
 
     const postData = async () => {
         const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/projects/:id`, 
+        `${process.env.REACT_APP_API_URL}/projects/`, 
         {
         method: "post",
         headers:{
@@ -35,10 +35,10 @@ function ProjectForm() {
         body: JSON.stringify(value),    
         }
         )
-        .then ((response) => response.json())
-        .then ((result) => setValue(result.rows))
-        .catch((err) => console.log('error'))
-        // return response.json()    
+        // .then ((response) => response.json())
+        // .then ((result) => setValue(result.rows))
+        // .catch((error) => console.log('error'))
+        return response.json()    
     };
 
     // const handleSubmit = (e) => {
