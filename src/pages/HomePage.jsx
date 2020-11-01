@@ -7,10 +7,10 @@ function HomePage(){
 
     useEffect(() => {
         const token = window.localStorage.getItem("token")
-        fetch(`${process.env.REACT_APP_API_URL}/projects`, {
-            // headers:{
-            //     'Authorization': `Token ${token}`
-            // }
+        fetch(`${process.env.REACT_APP_API_URL}/projects/`, {
+            headers:{
+                'Authorization': `Token ${token}`
+            }
         })
         // fetch(`${process.env.REACT_APP_API_URL}/projects`)
         .then((results) => {
