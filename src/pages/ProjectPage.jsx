@@ -6,7 +6,12 @@ function ProjectPage(){
     const { id } = useParams();
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_URL}projects/${id}`)
+        const token = window.localStorage.getItem("token")
+        fetch(`${process.env.REACT_APP_API_URL}/projects/${id}`, {
+            headers:{
+                'Authorization': `Token ${token}`
+            }
+        })
         .then((results) => {
             return results.json();
         })
