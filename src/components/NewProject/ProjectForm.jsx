@@ -2,16 +2,19 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function ProjectForm() {
-    // const addProject = (text) =>
-    // {
-    //     const newProjectCard = [ {text}];
-    //     setValue(newProjectCard);
-    // }
+    const addProject = (text) =>
+    {
+        const newProjectCard = [ {text}];
+        setValue(newProjectCard);
+    }
     const [value, setValue] = useState({
         title: "",
         description: "",
         goal:"",
         image:"",
+        is_open: "",
+        date_created:""
+
     });
 
     const history = useHistory();
@@ -41,26 +44,26 @@ function ProjectForm() {
         return response.json()    
     };
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     if (!value){
-    //         return;
-    //     }
-    //     addProject(value);
-    //     setValue("");   
-    //     };
-
-
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            if (value.title && value.description){
-            postData().then((response) => {
-                // console.log(response)
-                // window.localStorage.setItem("rows", response.rows);
-                history.push("/");
-            });    
-            }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!value){
+            return;
+        }
+        addProject(value);
+        setValue("");   
         };
+
+
+        // const handleSubmit = (e) => {
+        //     e.preventDefault();
+        //     if (value.title && value.description){
+        //     postData().then((response) => {
+        //         // console.log(response)
+        //         // window.localStorage.setItem("rows", response.rows);
+        //         history.push("/");
+        //     });    
+        //     }
+        // };
 
     return (
         <form>
@@ -97,6 +100,24 @@ function ProjectForm() {
             type="text"
             id="Image"
             placeholder="Image"
+            onChange={handleChange}
+        />
+        </div>
+        <div>
+        <label htmlFor="is_open">Make it Public?</label>
+        <input
+            type="text"
+            id="is_open"
+            placeholder="is_open"
+            onChange={handleChange}
+        />
+        </div>
+        <div>
+        <label htmlFor="date_created">Date created</label>
+        <input
+            type="text"
+            id="date_created"
+            placeholder="date_created"
             onChange={handleChange}
         />
         </div>
