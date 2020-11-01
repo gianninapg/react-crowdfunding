@@ -2,60 +2,95 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function ProjectForm() {
-    const [credentials, setCredentials] = useState({
-        username: "",
-        password: "",
+    const addProject = (text) =>
+    {
+        const newProjectCard = [ {text}];
+        setValue(newProjectCard);
+    }
+    const [value, setValue] = useState({
+        title: "",
+        description: "",
+        goal:"",
+        image:"",
     });
+
 
     const history = useHistory();
 
     const handleChange = (e) => {
         const {id, value } = e.target;
-        setCredentials((prevCredentials) => ({
-            ...prevCredentials,
+        setValue((prevValue) => ({
+            ...prevValue,
             [id]: value,
         }));
     };
 
     const postData = async () => {
         const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/new-project/`, 
+        `${process.env.REACT_APP_API_URL}/projects/`, 
         {
         method: "post",
         headers:{
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(credentials),    
+        body: JSON.stringify(value),    
         }
         );};
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (credentials.username && credentials.password){
-        postData().then((response) => {
-        // window.localStorage.setItem("token", response.token);
-        history.push("/");
-        });    
-        }
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (!value){
+    //         return;
+    //     }
+    //     addProject(value);
+    //     setValue("");   
+    //     };
+
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            if (value.title && value.description){
+            postData().then((response) => {
+            history.push("/");
+            });    
+            }
+        };
 
     return (
         <form>
         <div>
-        <label htmlFor="username">Title:</label>
+        <label htmlFor="title">Title:</label>
         <input
             type="text"
-            id="username"
-            placeholder="Enter username"
+            id="title"
+            placeholder="Enter title"
             onChange={handleChange}
         />
         </div>
         <div>
-        <label htmlFor="password">Description:</label>
+        <label htmlFor="description">Description:</label>
         <input
-            type="password"
-            id="password"
-            placeholder="Password"
+            type="text"
+            id="description"
+            placeholder="description"
+            onChange={handleChange}
+        />
+        </div>
+        <div>
+        <label htmlFor="goal">Goal</label>
+        <input
+            type="text"
+            id="goal"
+            placeholder="goal"
+            onChange={handleChange}
+        />
+        </div>
+        <div>
+        <label htmlFor="image">Image</label>
+        <input
+            type="text"
+            id="Image"
+            placeholder="Image"
             onChange={handleChange}
         />
         </div>

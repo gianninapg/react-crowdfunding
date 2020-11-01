@@ -19,7 +19,7 @@ function App(){
           <ProjectPage />
           </Route>
 
-          <Route path="/new-project">
+          <Route path="/projects">
           <NewPage />
           </Route>
 

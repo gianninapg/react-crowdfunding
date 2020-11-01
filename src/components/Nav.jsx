@@ -6,8 +6,8 @@ function Nav(){
         <nav className="nav">
             <Link className="linkLogin" to="/login">Login</Link>
             <Link className="link" to="/">Home</Link>
-            <Link className="link" to ="/projects">Support Projects</Link>
-            <Link className="link" to ="/new-project">Raise Funds</Link>
+            <Link className="link" to ="/">Support Projects</Link>
+            <Link className="link" to ="/projects">Raise Funds</Link>
         </nav>
     );
 }
