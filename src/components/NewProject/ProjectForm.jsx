@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function ProjectForm() {
-    const addProject = (text) =>
-    {
-        const newProjectCard = [ {text}];
-        setValue(newProjectCard);
-    }
+    // const addProject = (text) =>
+    // {
+    //     const newProjectCard = [ {text}];
+    //     setValue(newProjectCard);
+    // }
     const [value, setValue] = useState({
         title: "",
         description: "",
@@ -44,26 +44,26 @@ function ProjectForm() {
         return response.json()    
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (!value){
-            return;
-        }
-        addProject(value);
-        setValue("");   
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (!value){
+    //         return;
+    //     }
+    //     addProject(value);
+    //     setValue("");   
+    //     };
+
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            if (value.title && value.description){
+            postData().then((response) => {
+                console.log(response)
+                window.localStorage.setItem("token", response.token);
+                history.push("/");
+            });    
+            }
         };
-
-
-        // const handleSubmit = (e) => {
-        //     e.preventDefault();
-        //     if (value.title && value.description){
-        //     postData().then((response) => {
-        //         // console.log(response)
-        //         // window.localStorage.setItem("rows", response.rows);
-        //         history.push("/");
-        //     });    
-        //     }
-        // };
 
     return (
         <form>
