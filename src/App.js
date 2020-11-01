@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import ProjectPage from "./pages/ProjectPage";
 import NewPage from "./pages/NewPage";
 import LoginPage from "./pages/LoginPage";
+import PledgePage from "./pages/PledgePage";
 import "./App.css";
 
 function App(){
@@ -21,6 +22,10 @@ function App(){
 
           <Route path="/projects">
           <NewPage />
+          </Route>
+
+          <Route path="/pledges">
+          <PledgePage />
           </Route>
 
           <Route path="/login">
