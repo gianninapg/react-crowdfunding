@@ -27,7 +27,9 @@ function LoginForm() {
         },
         body: JSON.stringify(credentials),    
         }
-        );};
+        )
+        return response.json()    
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
