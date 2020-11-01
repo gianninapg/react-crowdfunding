@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 
 function ProjectForm() {
-    const addProject = (text) =>
-    {
-        const newProjectCard = [ {text}];
-        setValue(newProjectCard);
-    }
+    // const addProject = (text) =>
+    // {
+    //     const newProjectCard = [ {text}];
+    //     setValue(newProjectCard);
+    // }
     const [value, setValue] = useState({
         title: "",
         description: "",
         goal:"",
         image:"",
     });
-
 
     const history = useHistory();
 
@@ -27,7 +26,7 @@ function ProjectForm() {
 
     const postData = async () => {
         const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/projects/`, 
+        `${process.env.REACT_APP_API_URL}/projects/:id`, 
         {
         method: "post",
         headers:{
@@ -35,7 +34,12 @@ function ProjectForm() {
         },
         body: JSON.stringify(value),    
         }
-        );};
+        )
+        .then ((response) => response.json())
+        .then ((result) => setValue(result.rows))
+        .catch((err) => console.log('error'))
+        // return response.json()    
+    };
 
     // const handleSubmit = (e) => {
     //     e.preventDefault();
@@ -51,7 +55,9 @@ function ProjectForm() {
             e.preventDefault();
             if (value.title && value.description){
             postData().then((response) => {
-            history.push("/");
+                // console.log(response)
+                // window.localStorage.setItem("rows", response.rows);
+                history.push("/");
             });    
             }
         };
