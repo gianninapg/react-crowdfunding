@@ -7,7 +7,7 @@ function ProjectForm() {
     //     const newProjectCard = [ {text}];
     //     setValue(newProjectCard);
     // }
-    const [value, setValue] = useState({
+    const [projectCard, setProjectCard] = useState({
         title: "",
         description: "",
         goal:"",
@@ -21,8 +21,8 @@ function ProjectForm() {
 
     const handleChange = (e) => {
         const {id, value } = e.target;
-        setValue((prevValue) => ({
-            ...prevValue,
+        setProjectCard((prevProjectCard) => ({
+            ...prevProjectCard,
             [id]: value,
         }));
     };
@@ -35,11 +35,11 @@ function ProjectForm() {
         headers:{
             "Content-Type": "application/json",
         },
-        body: JSON.stringify(value),    
+        body: JSON.stringify(projectCard),    
         }
         )
         // .then ((response) => response.json())
-        // .then ((result) => setValue(result.rows))
+        // .then ((result) => setProjectCard(result.rows))
         // .catch((error) => console.log('error'))
         return response.json()    
     };
@@ -54,16 +54,16 @@ function ProjectForm() {
     //     };
 
 
-        const handleSubmit = (e) => {
-            e.preventDefault();
-            if (value.title && value.description){
-            postData().then((response) => {
-                console.log(response)
-                window.localStorage.setItem("token", response.token);
-                history.push("/");
-            });    
-            }
-        };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (projectCard.title && projectCard.description){
+        postData().then((response) => {
+            console.log(response)
+            window.localStorage.setItem("token", response.token);
+            history.push("/");
+        });    
+        }
+    };
 
     return (
         <form>
