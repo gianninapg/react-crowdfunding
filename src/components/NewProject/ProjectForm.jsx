@@ -11,7 +11,7 @@ function ProjectForm() {
         title: "",
         description: "",
         goal:"",
-        image:"",
+        image: "",
         is_open: "",
         date_created:""
 
@@ -88,7 +88,7 @@ function ProjectForm() {
         <div>
         <label htmlFor="goal">Goal</label>
         <input
-            type="text"
+            type="number"
             id="goal"
             placeholder="goal"
             onChange={handleChange}
@@ -97,25 +97,32 @@ function ProjectForm() {
         <div>
         <label htmlFor="image">Image</label>
         <input
-            type="text"
+            type="url"
             id="Image"
             placeholder="Image"
             onChange={handleChange}
         />
         </div>
         <div>
-        <label htmlFor="is_open">Make it Public?</label>
+        <label htmlFor="is_open">Make it Public</label>
         <input
-            type="text"
+            type="checkbox"
             id="is_open"
             placeholder="is_open"
+            onChange={handleChange}
+        />
+        <label htmlFor="is_open">Hide</label>
+        <input
+            type="checkbox"
+            id="is_open2"
+            placeholder="is_open2"
             onChange={handleChange}
         />
         </div>
         <div>
         <label htmlFor="date_created">Date created</label>
         <input
-            type="text"
+            type="url"
             id="date_created"
             placeholder="date_created"
             onChange={handleChange}
