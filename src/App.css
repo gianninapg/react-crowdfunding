@@ -66,6 +66,13 @@
 
 } 
 
+.Logo {
+  background-image: url(./components/Logo/Logo.png);
+  float: left;
+  margin-left: 50px;
+
+}
+
 .link:hover{
   border-width: 10px;
   color: grey;
