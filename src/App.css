@@ -50,8 +50,8 @@
   flex-flow: row;
   font-family: 'Ubuntu', sans-serif;
   margin-bottom: 50px;
-  border-bottom: solid 5px #FC5185;
-  box-shadow: 0px 0px 5px orangered;
+  border-bottom: solid 5px rgb(18, 146, 231);
+  box-shadow: 0px 0px 5px blue;
  
 }
 
@@ -59,17 +59,20 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: row-reverse;
-  color: orangered;
+  color: #4c96d7;
   text-decoration: none;
   margin-bottom: 15pt;
-  margin-right: 30pt;
+  margin-right: 70pt;
 
 } 
 
 .Logo {
   background-image: url(./components/Logo/Logo.png);
   float: left;
-  margin-left: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-left: 150px;
 
 }
 
@@ -85,6 +88,7 @@
   color: black;
   text-decoration: none;
   margin-bottom: 15pt;
-  margin-right: 30pt;
+  margin-right: 70pt;
   font-size: 20px;
 }
+
